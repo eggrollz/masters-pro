@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link href="mapcss.css" rel="stylesheet" type="text/css">
+<meta charset="utf-8">
+<meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no">
+<title>Where are Students Now?</title>
+<style>
+  html, body, #viewDiv {
+    padding: 0;
+    margin: 0;
+    height: 100%;
+    width: 100%;
+  }
+</style>
+<link rel="stylesheet" href="https://js.arcgis.com/4.8/esri/css/main.css">
+<script src="https://js.arcgis.com/4.8/"></script>
+<script>
+require([
+  "esri/Map",
+  "esri/views/MapView",
+  "dojo/domReady!"
+], function(Map, MapView){
+  var map = new Map({
+    basemap: "osm"
+  });
+  var view = new MapView({
+    container: "viewDiv",  // Reference to the scene div created in step 5
+    map: map,  // Reference to the map object created before the scene
+    zoom: 4,  // Sets zoom level based on level of detail (LOD)
+    center: [15, 65]  // Sets center point of view using longitude,latitude
+  });
+});
+</script>
+</head>
+<body>
+  <ul class="nav">
+    <li><a href="file:///Users/Quyen/Documents/MastersProj/DirectoryPage/index.html">Directory</a></li>
+    <li><a href="file:///Users/Quyen/Documents/MastersProj/MapPage/mapindex.html">Map</a></li>
+    <li><a href="file:///Users/Quyen/Documents/MastersProj/ProfilePage/prof.html#">My Profile</a></li>
+    <li><a href="file:///Users/Quyen/Documents/MastersProj/ProfileForm/profform.html">Edit Profile</a></li>
+    <li><a href="file:///Users/Quyen/Documents/MastersProj/About/aboutpage.html">About</a></li>
+  </ul>
+
+<div id="viewDiv"></div>
+</body>
+
+</html>

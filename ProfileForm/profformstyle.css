@@ -1,0 +1,110 @@
+*{
+  margin: 0;
+  padding: 0;
+}
+
+body{
+  margin: 0;
+  padding: 0;
+  /* background: #fff; */
+  background: #cc9900;
+  /* background-size: cover; */
+  font-size: 16px;
+  font-family: arial;
+}
+
+.nav{
+  background-color: rgba(0, 0, 0, 0.5);
+  color: #ffffff;
+  list-style: none;
+  text-align: center;
+  padding: 3px 0 3px 0;
+  font-size: 14px;
+}
+
+.nav>li{
+  display: inline-block;
+  padding: 0 3px 0 3px;
+}
+
+.nav>li>a{
+  text-decoration: none;
+  color: #ffffff;
+}
+
+.nav>li>a:hover{
+  color: #c1c1c1;
+}
+
+.title{
+  text-align: center;
+  background: rgba(0, 0, 0, 0.7);
+  height: auto;
+  max-width: 80%;
+  border-radius: 5%;
+  padding: 10px;
+  margin: 10px auto;
+  margin-top: 1%;
+  box-sizing: border-box;
+  font-family: arial;
+  color: white;
+}
+
+.container{
+  background: rgba(0, 0, 0, 0.7);
+  height: auto;
+  max-width: 80%;
+  border-radius: 5%;
+  padding: 10px;
+  margin: 10px auto;
+  margin-top: 1%;
+  box-sizing: border-box;
+  font-family: arial;
+  color: white;
+}
+
+.short .shortt{
+  height: auto;
+  width: 50%;
+}
+
+.area{
+  height: 80px;
+  width: 100%;
+}
+
+h4{
+  margin-bottom: 4px;
+}
+
+.interest{
+  font-size: 0.9em;
+
+}
+
+.interest input{
+  margin-right: 3px;
+}
+
+.btn{
+  max-width: 30%;
+  background: rgba(0, 0, 0, 0.7);
+  height: 50px;
+  line-height: 50px;
+  text-align: center;
+  border-radius: 5%;
+  margin: 0 auto;
+  color: white;
+  text-transform: uppercase;
+  font-weight: bold;
+  font-family: arial;
+}
+
+input[type="text"], input[type="email"]{
+  padding: 3px;
+  outline: none;
+}
+
+textarea{
+  width: 100%;
+}

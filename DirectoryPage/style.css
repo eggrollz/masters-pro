@@ -1,0 +1,52 @@
+*{
+  margin: 0;
+  padding: 0;
+}
+
+.prof-list{
+  list-style: none;
+  text-decoration: none;
+}
+
+body{
+  margin: 0;
+  padding: 0;
+  background: url(image1.jpg) no-repeat;
+  background-size: cover;
+  font-family: arial;
+}
+
+.nav{
+  background-color: rgba(0, 0, 0, 0.5);
+  color: #ffffff;
+  list-style: none;
+  text-align: center;
+  padding: 3px 0 3px 0;
+  font-size: 14px;
+}
+
+.nav>li{
+  display: inline-block;
+  padding: 0 3px 0 3px;
+}
+
+.nav>li>a{
+  text-decoration: none;
+  color: #ffffff;
+}
+
+.nav>li>a:hover{
+  color: #c1c1c1;
+}
+
+.box{
+  max-width: 80%;
+  border-radius: 5%;
+  background: rgba(0, 0, 0, 0.5);
+  padding: 10px;
+  text-align: center;
+  margin: auto;
+  margin-top: 1%;
+  color: white;
+  font-family: arial;
+}
