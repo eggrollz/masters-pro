@@ -1,4 +1,4 @@
-var class2018 = [
+var c['2018'] = [
 {
 "name":"Quyen Ha",
 "jobtitle":"GIS Technician",
@@ -65,7 +65,7 @@ var class2018 = [
 }
 ]
 
-var class2017 = [
+var c2017 = [
 {
 "name":"Student 2017",
 "jobtitle":"GIS Technician",

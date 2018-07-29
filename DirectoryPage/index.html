@@ -6,34 +6,59 @@
 </head>
 <body>
   <ul class="nav">
-    <li><a href="file:///Users/Quyen/Documents/MastersProj/DirectoryPage/index.html">Directory</a></li>
-    <li><a href="file:///Users/Quyen/Documents/MastersProj/MapPage/mapindex.html">Map</a></li>
-    <li><a href="file:///Users/Quyen/Documents/MastersProj/ProfilePage/prof.html">My Profile</a></li>
-    <li><a href="file:///Users/Quyen/Documents/MastersProj/ProfileForm/profform.html">Edit Profile</a></li>
-    <li><a href="file:///Users/Quyen/Documents/MastersProj/About/aboutpage.html">About</a></li>
+    <li><a href="file:///Users/quyen/Documents/masters-pro/DirectoryPage/index.html">Directory</a></li>
+    <li><a href="file:///Users/quyen/Documents/masters-pro/MapPage/mapindex.html">Map</a></li>
+    <li><a href="file:///Users/quyen/Documents/masters-pro/ProfilePage/prof.html">My Profile</a></li>
+    <li><a href="file:///Users/quyen/Documents/masters-pro/ProfileForm/profform.html">Edit Profile</a></li>
+    <li><a href="file:///Users/quyen/Documents/masters-pro/About/aboutpage.html">About</a></li>
   </ul>
   <div class="box">
-    <h1> STUDENTS <div> Class of </div>
-      <select Name="Class of">
-        <option value="select year">select year</option>
+    <h2> STUDENTS <div> Class of </div>
+      <select id = "classlist" Name="Class of">
+        <option value="Please select year">select year</option>
         <option value="2019">2019</option>
         <option value="2018">2018</option>
-        <option value="2018">2017</option>
-        <option value="2018">2016</option>
-        <option value="2018">2015</option>
-        <option value="2018">2014</option>
-        <option value="2018">2013</option>
-        <option value="2018">2012</option>
-        <option value="2018">2011</option>
+        <option value="2017">2017</option>
+        <option value="2016">2016</option>
+        <option value="2015">2015</option>
+        <option value="2014">2014</option>
+        <option value="2013">2013</option>
+        <option value="2012">2012</option>
+        <option value="2011">2011</option>
       </select>
+      <h2><div id = "divResult"></div><h2>
     </h1>
   </div>
   <div id="test"></div>
   <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
   <script src="database.js"></script>
-  <script> 
+  <script>
+  //this function changes the divResult under the drop down menu
+    $(document).ready(function() {
+      $('#classlist').change(function() {
+        var selectedValue = $(classlist).val();
+        $('#divResult').html(selectedValue);
+      });
+    });
+    //trying to figure out how to do the same thing as function above, but with function below to change the class list
+    // $(document).ready(function() {
+    //   $('#classlist').change(function() {
+    //     if ($(classlist).val == '2018')
+    //     {
+    //       _load
+    //     }
+    //     else {
+    //       _load
+    //     }
+    //     else {
+    //
+    //     }
+    //     else if (true) {
+    //
+    //     }
+    //   }));
     $(document).ready(function(){
-      class2018.forEach(function(person){
+      c['2018'].forEach(function(person){
         console.log(person)
         var personDiv = $('<div class="box"/>')
         var personUl = $('<ul class="prof-list"/>')
