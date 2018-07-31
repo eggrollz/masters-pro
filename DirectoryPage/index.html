@@ -35,56 +35,44 @@
   <script>
   //this function changes the divResult under the drop down menu
     $(document).ready(function() {
+
       $('#classlist').change(function() {
-        var selectedValue = $(classlist).val();
-        $('#divResult').html(selectedValue);
+        var selectedValue = $('#classlist').val();
+        var year = classData["c" + selectedValue];
+        renderPage(year)
       });
-    });
-    //trying to figure out how to do the same thing as function above, but with function below to change the class list
-    // $(document).ready(function() {
-    //   $('#classlist').change(function() {
-    //     if ($(classlist).val == '2018')
-    //     {
-    //       _load
-    //     }
-    //     else {
-    //       _load
-    //     }
-    //     else {
-    //
-    //     }
-    //     else if (true) {
-    //
-    //     }
-    //   }));
-    $(document).ready(function(){
-      c['2018'].forEach(function(person){
-        console.log(person)
-        var personDiv = $('<div class="box"/>')
-        var personUl = $('<ul class="prof-list"/>')
-        var personName = $('<li/>')
-        var jobTitle = $('<li/>')
-        var employer = $('<li/>')
-        var jobLocation = $('<li/>')
-        var yearStarted = $('<li/>')
-        var interests = $('<li/>')
 
-        personName.text(person.name)
-        jobTitle.text(person.jobtitle)
-        employer.text(person.employer)
-        jobLocation.text(person.joblocation)
-        yearStarted.text(person.yearstarted)
-        interests.text(person.interests)
+      function renderPage(classYear, num1, num2) {
+        $('#test').empty()
+        classYear.forEach(function(person){
+          console.log(person)
+          var personDiv = $('<div class="box"/>')
+          var personUl = $('<ul class="prof-list"/>')
+          var personName = $('<li/>')
+          var jobTitle = $('<li/>')
+          var employer = $('<li/>')
+          var jobLocation = $('<li/>')
+          var yearStarted = $('<li/>')
+          var interests = $('<li/>')
 
-        personUl.append(personName)
-        personUl.append(jobTitle)
-        personUl.append(employer)
-        personUl.append(jobLocation)
-        personUl.append(yearStarted)
-        personUl.append(interests)
-        personDiv.append(personUl)
-        $("#test").append(personDiv)
-      })
+          personName.text(person.name)
+          jobTitle.text(person.jobtitle)
+          employer.text(person.employer)
+          jobLocation.text(person.joblocation)
+          yearStarted.text(person.yearstarted)
+          interests.text(person.interests)
+
+          personUl.append(personName)
+          personUl.append(jobTitle)
+          personUl.append(employer)
+          personUl.append(jobLocation)
+          personUl.append(yearStarted)
+          personUl.append(interests)
+          personDiv.append(personUl)
+          $("#test").append(personDiv)
+        })
+      }
+
     })
 
     //making interactive using jQuery:
@@ -118,54 +106,54 @@
 
   </script>
 
-<!-- <div class="box">
-    <ul class= "prof-list">
-      <li><a href=""> NAME </a></li>
-      <li> Name of position </li>
-      <li> Organization </li>
-      <li> Location of position </li>
-      <li> Interests: keywords </li>
-    </ul>
-  </div>
-    <div class="box">
-      <ul class= "prof-list">
-        <li><a href="#"> QUYEN HA </a></li>
-        <li> GIS Technician </li>
-        <li> Town of Marana </li>
-        <li> Marana, AZ </li>
-        <li> Interests: development, sustainability, database management </li>
-      </ul>
-    </div>
-
-    <div class="box">
-      <ul class= "prof-list">
-        <li><a href=""> LUARA ORTIZ </a></li>
-        <li>Archeologist</li>
-        <li> Organization </li>
-        <li>Tucson, AZ</li>
-        <li>Interests: development, archelogy </li>
-      </ul>
-    </div>
-
-    <div class="box">
-      <ul class= "prof-list">
-        <li><a href=""> MOHAMED MOHAMED </a></li>
-        <li>GIS Technician</li>
-        <li>TerraSystems</li>
-        <li>Tucson, AZ</li>
-        <li>Interests: networks, surveying, engineering</li>
-      </ul>
-    </div>
-
-    <div class="box">
-      <ul class= "prof-list">
-        <li><a href=""> CHRISTY ELZEY </a></li>
-        <li>Systems Engineer</li>
-        <li>Raytheon</li>
-        <li>Tucson, AZ</li>
-        <li>Interests: development, systems analysis, biology</li>
-      </ul>
-    </div> -->
+// <!-- <div class="box">
+//     <ul class= "prof-list">
+//       <li><a href=""> NAME </a></li>
+//       <li> Name of position </li>
+//       <li> Organization </li>
+//       <li> Location of position </li>
+//       <li> Interests: keywords </li>
+//     </ul>
+//   </div>
+//     <div class="box">
+//       <ul class= "prof-list">
+//         <li><a href="#"> QUYEN HA </a></li>
+//         <li> GIS Technician </li>
+//         <li> Town of Marana </li>
+//         <li> Marana, AZ </li>
+//         <li> Interests: development, sustainability, database management </li>
+//       </ul>
+//     </div>
+//
+//     <div class="box">
+//       <ul class= "prof-list">
+//         <li><a href=""> LUARA ORTIZ </a></li>
+//         <li>Archeologist</li>
+//         <li> Organization </li>
+//         <li>Tucson, AZ</li>
+//         <li>Interests: development, archelogy </li>
+//       </ul>
+//     </div>
+//
+//     <div class="box">
+//       <ul class= "prof-list">
+//         <li><a href=""> MOHAMED MOHAMED </a></li>
+//         <li>GIS Technician</li>
+//         <li>TerraSystems</li>
+//         <li>Tucson, AZ</li>
+//         <li>Interests: networks, surveying, engineering</li>
+//       </ul>
+//     </div>
+//
+//     <div class="box">
+//       <ul class= "prof-list">
+//         <li><a href=""> CHRISTY ELZEY </a></li>
+//         <li>Systems Engineer</li>
+//         <li>Raytheon</li>
+//         <li>Tucson, AZ</li>
+//         <li>Interests: development, systems analysis, biology</li>
+//       </ul>
+//     </div> -->
 
   </body>
 
