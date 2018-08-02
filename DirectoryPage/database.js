@@ -1,4 +1,16 @@
 var classData = {
+  c0000: [ {
+    "name":"Dr. Chris Lukinbeal",
+    "jobtitle":"Professor and Director",
+    "yearstarted":"2018",
+    "description":"The Director of the program",
+    "interests":"development, webmaps, sustainability",
+    "email":"clukinbeal@email.arizona.edu",
+    "phone":" ",
+    "website":"linkedin.com/in/xxxx"
+    }
+  ],
+
   c2018: [
     {
     "name":"Quyen Ha",
@@ -132,5 +144,8 @@ var classData = {
   ],
   c2016: [],
   c2015: [],
-  c2014: []
+  c2014: [],
+  c2013: [],
+  c2012: [],
+  c2011: []
 }
