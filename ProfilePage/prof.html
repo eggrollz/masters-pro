@@ -15,27 +15,50 @@
       <li><a href="../ProfileForm/profform.html">Edit Profile</a></li>
       <li><a href="../About/aboutpage.html">About</a></li>
     </ul>
-    
+
     <div class="profbox">
       <img src="profimg.png" alt="" class="box-img">
-      <h1>QUYEN HA</h1>
-      <li>GIS Technician</li>
-      <li>Marana, AZ</li>
+      <h1 id="personName">Person Name</h1>
+      <div id="personTitle">GIS Technician</div>
+      <div>Marana, AZ</div>
     </div>
     <div class="profbox">
-      <li>Class of 2018</li>
+      <div>Class of 2018</div>
     </div>
     <div class="text">
-      <li>Description: Currently a 2018 candidate in the UA MS GIST program. Expected to graduate in December 2018. Also working at the Town of Marana Technology Services Department, where I digitize as-builts, and help out with GIS related activities.</li>
+      Description:
+      <span id="personDescription">Currently a 2018 candidate in the UA MS GIST program.
+        Expected to graduate in December 2018. Also working at the Town of Marana Technology Services Department,
+         where I digitize as-builts, and help out with GIS related activities.
+       </span>
     </div>
     <div class="text">
-      <li>Interests: development, sustainability</li>
+      <div>Interests: development, sustainability</div>
     </div>
     <div class="text">
-      <li>Email: quyenttha@gmail.com</li>
-      <li>Phone: (571)243-8787</li>
-      <li>LinkedIn: www.linkedin.com/in/quyentha/</li>
+      <div>Email: quyenttha@gmail.com</div>
+      <div>Phone: (571)243-8787</div>
+      <div>LinkedIn: www.linkedin.com/in/quyentha/</div>
     </div>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <!-- load variables from query string, then find person's data from the json database, like Logan's code  -->
+    <!-- Find values in query string
+    var year;
+    var email;
+
+    var thisYearsData = classData[year]
+    var myPerson = thisYearsData.find(function(item) {
+      if (item.email == email) {
+        return item
+      }
+      else {
+        return null
+      }
+    })
+
+    myNameDiv.text(myPerson.name)
+     -->
   </body>
 
 </html>

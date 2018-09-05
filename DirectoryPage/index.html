@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title> Students Directory </title>
+  <title>Students Directory</title>
   <link href="style.css" rel="stylesheet" type="text/css">
 </head>
 <body>
@@ -14,7 +14,7 @@
     <li><a href="../About/aboutpage.html">About</a></li>
   </ul>
 
-  <div class="box">
+  <div class="dir">
     <h2> Directory </h2>
       <select id = "classlist" Name="Class of">
         <option value="please select">Select here</option>
@@ -39,17 +39,17 @@
 
     $(document).ready(function() {
 
-      $('#classlist').change(function() {
+      $("#classlist").change(function() {
         var selectedValue = $('#classlist').val();
         var year = classData["c" + selectedValue];
         renderPage(year)
       });
 
       function renderPage(classYear) {
-        $('#page').empty()
+        $("#page").empty()
         classYear.forEach(function(person){
-          console.log(person)
-          var personDiv = $('<div class="box"/>')
+          // console.log(person)
+          var personDiv = $('<a href="../ProfilePage/prof.html?year=c' + person.yearstarted + '&email=' + person.email + '" class="box"/>')
           var personUl = $('<ul class="prof-list"/>')
           var personName = $('<li/>')
           var jobTitle = $('<li/>')
@@ -74,12 +74,26 @@
           personDiv.append(personUl)
           $("#page").append(personDiv)
         })
+
+        // $(".box").click(function() {
+        //   // $(this).children().click();
+        //   window.location.assign("../ProfilePage/prof.html")
+        // });
+
       }
-    })
+
+    });
+
+
+
+    // function loadProfile() {
+    //   $(".box").click(function() {
+    //     window.location.assign("../ProfilePage/prof.html")
+    // })};
 
   </script>
 
-// <!-- <div class="box">
+<!-- <div class="box">
 //     <ul class= "prof-list">
 //       <li><a href=""> NAME </a></li>
 //       <li> Name of position </li>
