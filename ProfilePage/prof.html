@@ -3,9 +3,8 @@
 
   <head>
     <link rel="stylesheet" href="profstyle.css">
-    <title>QUYEN HA</title>
+    <title>Profile Page</title>
   </head>
-
 
   <body>
     <ul class="nav">
@@ -18,34 +17,69 @@
 
     <div class="profbox">
       <img src="profimg.png" alt="" class="box-img">
-      <h1 id="personName">Person Name</h1>
-      <div id="personTitle">GIS Technician</div>
-      <div>Marana, AZ</div>
+      <h1 id="personName"></h1>
+      <div id="personTitle"></div>
+      <div id="personLocation"></div>
     </div>
-    <div class="profbox">
-      <div>Class of 2018</div>
+
+    <div class="profbox" id=personYear>
     </div>
+
     <div class="text">
+      <span id="personDescription">
+      </span>
+    </div>
+
+    <div class="text">
+      <span id="personInterests">
+      </span>
+    </div>
+
+    <div class="text">
+      <div id="personEmail">
+      </div>
+
+      <div id="personPhone">
+      </div>
+
+      <div id="personSite">
+      </div>
+
+    </div>
+
+    <!-- <div class="text">
       Description:
       <span id="personDescription">Currently a 2018 candidate in the UA MS GIST program.
         Expected to graduate in December 2018. Also working at the Town of Marana Technology Services Department,
          where I digitize as-builts, and help out with GIS related activities.
        </span>
     </div>
+
     <div class="text">
-      <div>Interests: development, sustainability</div>
-    </div>
-    <div class="text">
-      <div>Email: quyenttha@gmail.com</div>
-      <div>Phone: (571)243-8787</div>
-      <div>LinkedIn: www.linkedin.com/in/quyentha/</div>
+      Interests:
+      <span id="personInterests">development, sustainability
+      </span>
     </div>
 
+    <div class="text">
+      <div id="personEmail">
+        Email: quyenttha@gmail.com
+      </div>
+      <div id="personPhone">
+        Phone: (571)243-8787
+      </div>
+      <div id="personSite">
+        LinkedIn: www.linkedin.com/in/quyentha/
+      </div>
+    </div> -->
+
+
     <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script src="../database.js"></script>
     <!-- load variables from query string, then find person's data from the json database, like Logan's code  -->
     <!-- Find values in query string
-    var year;
-    var email;
+    var year =
+    var email =
 
     var thisYearsData = classData[year]
     var myPerson = thisYearsData.find(function(item) {
@@ -59,6 +93,50 @@
 
     myNameDiv.text(myPerson.name)
      -->
+    <script>
+
+      //get variables from string from url
+      var urlParams = new URLSearchParams(window.location.search)
+      var email = urlParams.get('email');
+      var year = urlParams.get('year');
+
+      //create myPerson variable that holds the JSON data for the person
+      $(document).ready(function () {
+        var thisYearsData = classData[year]
+        //thisYearsData.find() is an array.find() function
+        var myPerson = thisYearsData.find(function(item) {
+          if (item.email == email) {
+            return true
+          }
+          else {
+            return false
+          }
+          // the short hand of the function above is: return i.email == email
+        })
+
+        if (myPerson) {
+          $("#personName").text(myPerson.name)
+          $("#personTitle").text(myPerson.jobtitle)
+          $("#personLocation").text(myPerson.joblocation)
+          $("#personYear").text(myPerson.yearstarted)
+          $("#personDescription").text("Description: " + myPerson.description)
+          $("#personInterests").text("Interests: " + myPerson.interests)
+          $("#personEmail").text(myPerson.email)
+          $("#personPhone").text(myPerson.phone)
+          $("#personSite").text(myPerson.website)
+
+          // $("img").attr('src', 'https://source.unsplash.com/random/500x500')
+        }
+        else {
+          $("#personName").text("Profile Not Found")
+        }
+
+      })
+
+
+
+
+    </script>
   </body>
 
 </html>
