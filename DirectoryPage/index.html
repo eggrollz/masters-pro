@@ -27,13 +27,13 @@
         <option value="2013">Class of 2013</option>
         <option value="2012">Class of 2012</option>
         <option value="2011">Class of 2011</option>
-        <option value="0000">Staff</option>
+        <option value="staff">Staff</option>
       </select>
   </div>
   <div id="page"></div>
 
   <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
-  <script src="database.js"></script>
+  <script src="../database.js"></script>
 
   <script>
 
@@ -48,7 +48,6 @@
       function renderPage(classYear) {
         $("#page").empty()
         classYear.forEach(function(person){
-          // console.log(person)
           var personDiv = $('<a href="../ProfilePage/prof.html?year=c' + person.yearstarted + '&email=' + person.email + '" class="box"/>')
           var personUl = $('<ul class="prof-list"/>')
           var personName = $('<li/>')
@@ -58,13 +57,15 @@
           var yearStarted = $('<li/>')
           var interests = $('<li/>')
 
+
+
           personName.text(person.name)
           jobTitle.text(person.jobtitle)
           employer.text(person.employer)
           jobLocation.text(person.joblocation)
           yearStarted.text(person.yearstarted)
           interests.text(person.interests)
-
+        console.log(yearStarted)
           personUl.append(personName)
           personUl.append(jobTitle)
           personUl.append(employer)
@@ -75,8 +76,8 @@
           $("#page").append(personDiv)
         })
 
+        // click function using jquery (but I chose to use a href insted for var personDiv):
         // $(".box").click(function() {
-        //   // $(this).children().click();
         //   window.location.assign("../ProfilePage/prof.html")
         // });
 
