@@ -48,7 +48,7 @@
       function renderPage(classYear) {
         $("#page").empty()
         classYear.forEach(function(person){
-          var personDiv = $('<a href="../ProfilePage/prof.html?year=c' + person.yearstarted + '&email=' + person.email + '" class="box"/>')
+          var personDiv = $('<a href="../ProfilePage/prof.html?year=c' + person.properties.yearstarted + '&email=' + person.properties.email + '" class="box"/>')
           var personUl = $('<ul class="prof-list"/>')
           var personName = $('<li/>')
           var jobTitle = $('<li/>')
@@ -57,14 +57,13 @@
           var yearStarted = $('<li/>')
           var interests = $('<li/>')
 
-
-
-          personName.text(person.name)
-          jobTitle.text(person.jobtitle)
-          employer.text(person.employer)
-          jobLocation.text(person.joblocation)
-          yearStarted.text(person.yearstarted)
+          personName.text(person.properties.name)
+          jobTitle.text(person.properties.jobtitle)
+          employer.text(person.properties.employer)
+          jobLocation.text(person.properties.joblocation)
+          yearStarted.text(person.properties.yearstarted)
           interests.text(person.interests)
+
         console.log(yearStarted)
           personUl.append(personName)
           personUl.append(jobTitle)
