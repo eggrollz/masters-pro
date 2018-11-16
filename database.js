@@ -1,125 +1,74 @@
 var classData = {
   cstaff: [ {
-    "type": "Feature",
-    "geometry": {
-      "type": "Point",
-      "coordinates": [125.6, 10.1]
-      },
-    "properties": {
-      "name": "Dr. Chris Lukinbeal",
-      "jobtitle":"Professor and Director",
-      "employer": "University of Arizona",
-      "joblocation": "Tucson, AZ",
-      "yearstarted":"staff",
-      "description":"The Director of the Master's of Science in GIS Technologies program. Additionally, he teaches undergraduate classes and specializes in film geography.",
-      "interests":"cinema, film, cultural geography, cartography, visual culture",
-      "email":"clukinbeal@email.arizona.edu",
-      "phone":" ",
-      "website":"www.linkedin.com/in/chris-lukinbeal-36505b62/",
-      },
+    "name":"Dr. Chris Lukinbeal",
+    "jobtitle":"Professor and Director",
+    "employer": "University of Arizona",
+    "joblocation": "Tucson, AZ",
+    "yearstarted":"staff",
+    "description":"The Director of the program",
+    "interests":"development, webmaps, sustainability",
+    "email":"clukinbeal@email.arizona.edu",
+    "phone":" ",
+    "website":"linkedin.com/in/xxxx"
+
   }],
 
   c2018: [
     {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [-77.441764, 38.892465] //coordinates are in [longitude, latitude]
-        },
-      "properties": {
-        "name":"Quyen Ha",
-        "jobtitle":"GIS Analyst & Technician",
-        "employer":"RDM International, Inc.",
-        "joblocation":"Chantilly, VA",
-        "yearstarted":"2018",
-        "description":"I will be a M.S. GIS Technologies candidate after this presentation. My passion lies within geospatial data communication, organization, and manipulation.",
-        "interests":"development, webmaps, sustainability",
-        "email":"quyenttha@gmail.com",
-        "phone":"(571)-243-8787",
-        "website":"www.linkedin.com/in/quyentha"
-        },
+    "name":"Quyen Ha",
+    "jobtitle":"GIS Technician",
+    "employer":"Town of Marana",
+    "joblocation":"Marana, AZ",
+    "yearstarted":"2018",
+    "description":"Currently a 2018 candidate in the UA MS GIST program...",
+    "interests":"development, webmaps, sustainability",
+    "email":"quyenttha@gmail.com",
+    "phone":"(571)-243-8787",
+    "website":"linkedin.com/in/quyentha",
+    "location": [-77.03238901390978, 38.913188059745586]
     },
 
     {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [-77.441764, 38.892465]
-        },
-      "properties": {
-        "name":"Laura Grantham",
-        "jobtitle":"Archeologist",
-        "employer":"Construction, Inc",
-        "joblocation":"Marana, AZ",
-        "yearstarted":"2018",
-        "description":"Currently a 2018 candidate in the UA MS GIST program...",
-        "interests":"archeology, opinion surveys, flamingos",
-        "email":"laura@email.com",
-        "phone":"(111)111-1111",
-        "website":"linkedin.com/in/1111"
-      },
+    "name":"Andrew Perew",
+    "jobtitle":"Archeologist",
+    "employer":"Tierra Right of Way",
+    "joblocation":"Tucson, AZ",
+    "yearstarted":"2018",
+    "description":"Curently a 2018 candidate in the UA MS GIST program.  Hoping to imporve the use of GIS in Archaeology",
+    "interests":"Business, VB, development",
+    "email":"a_perew@yahoo.com",
+    "phone":"(520)444-4444",
+    "website":"linkedin.com/in/4444",
+    "location": [-77.03218901390978, 38.913188059745586]
     },
 
     {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [-77.441764, 38.892465]
-        },
-      "properties": {
-        "name":"Mohamed Mohamed",
-        "jobtitle":"GIS Technician",
-        "employer":"Sulphur Springs Valley Electric Cooperative",
-        "joblocation":"Bisbee, AZ",
-        "yearstarted":"2018",
-        "description":"Currently a 2018 candidate in the UA MS GIST program...",
-        "interests":"surveying, engineering",
-        "email":"mohamed@email.com",
-        "phone":"(222)222-2222",
-        "website":"linkedin.com/in/2222"
-      },
+    "name":"Mohamed Mohamed",
+    "jobtitle":"GIS Technician",
+    "employer":"Sulphur Springs Valley Electric Cooperative",
+    "joblocation":"Bisbee, AZ",
+    "yearstarted":"2018",
+    "description":"Currently a 2018 candidate in the UA MS GIST program...",
+    "interests":"surveying, engineering, avoiding shrimp",
+    "email":"mohamed@email.com",
+    "phone":"(222)222-2222",
+    "website":"linkedin.com/in/2222",
+    "location": [-77.0368901390978, 38.913188059745586]
     },
 
     {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [-77.441764, 38.892465]
-        },
-      "properties": {
-        "name":"Christy Elzey",
-        "jobtitle":"Systems Engineer",
-        "employer":"Raytheon",
-        "joblocation":"Tucson, AZ",
-        "yearstarted":"2018",
-        "description":"Enjoys learning new concepts in programming. Hikes in the desert around Tucson, and plays with my awesome dog.",
-        "interests":"Python, Scripting, Programming",
-        "email":"christyelzey@email.arizona.edu",
-        "phone":"(520)332-5552",
-        "website":"www.linkedin.com/in/christy-elzey-85018747/"
+    "name":"Christy Elzey",
+    "jobtitle":"Systems Engineer",
+    "employer":"Raytheon",
+    "joblocation":"Tucson, AZ",
+    "yearstarted":"2018",
+    "description":"Currently a 2018 candidate in the UA MS GIST program...",
+    "interests":"Python, cool socks",
+    "email":"christy@email.com",
+    "phone":"(333)333-3333",
+    "website":"linkedin.com/in/3333",
+    "location": [-77.03838901390978, 38.913188059745586]
     },
-  },
-
-  {
-    "type": "Feature",
-    "geometry": {
-      "type": "Point",
-      "coordinates": [-77.441764, 38.892465]
-      },
-    "properties": {
-      "name":"Jenna Smith",
-      "jobtitle":"GIS Intern",
-      "employer":"City of Tucson",
-      "joblocation":"Tucson, AZ",
-      "yearstarted":"2018",
-      "description":"",
-      "interests":"",
-      "email":"",
-      "phone":"",
-      "website":""
-    },
-  },
-
 
     {
     "name":"Jon Cutts",
@@ -131,8 +80,24 @@ var classData = {
     "interests":"Business, VB, development",
     "email":"jon@email.com",
     "phone":"(444)444-4444",
-    "website":"linkedin.com/in/4444"
-    }
+    "website":"linkedin.com/in/4444",
+    "location": [-77.03218901390978, 38.913188059745586]
+    },
+
+    {
+    "name":"Laura Grantham",
+    "jobtitle":"Archeologist",
+    "employer":"Construction, Inc",
+    "joblocation":"Marana, AZ",
+    "yearstarted":"2018",
+    "description":"Currently a 2018 candidate in the UA MS GIST program...",
+    "interests":"archeology, opinion surveys, flamingos",
+    "email":"laura@email.com",
+    "phone":"(111)111-1111",
+    "website":"linkedin.com/in/1111",
+    "location": [-77.03438901390978, 38.913188059745586]
+    },
+
   ],
   c2017: [
     {
@@ -174,8 +139,6 @@ var classData = {
     },
 
     {
-
-
     "name":"Christy Elzey",
     "jobtitle":"Systems Engineer",
     "employer":"Raytheon",

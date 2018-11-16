@@ -1,67 +1,90 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <link href="mapcss.css" rel="stylesheet" type="text/css">
-  <meta charset="utf-8">
-  <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no">
-  <title>Where are Students Now?</title>
+  <head>
+    <meta charset="utf-8" />
+    <title>MS GIST Locations</title>
+    <link href="mapcss.css" rel="stylesheet" type="text/css">
+    <meta
+      name="viewport"
+      content="initial-scale=1,maximum-scale=1,user-scalable=no"
+    />
+    <script src="https://api.tiles.mapbox.com/mapbox-gl-js/v0.51.0/mapbox-gl.js"></script>
+    <link
+      href="https://api.tiles.mapbox.com/mapbox-gl-js/v0.51.0/mapbox-gl.css"
+      rel="stylesheet"
+    />
 
-  <!-- //ESRI API:  -->
-  <!-- <style>
-    html, body, #viewDiv {
-      padding: 0;
-      margin: 0;
-      height: 100%;
-      width: 100%;
-    }
-  </style>
-  <link rel="stylesheet" href="https://js.arcgis.com/4.8/esri/css/main.css">
-  <script src="https://js.arcgis.com/4.8/"></script>
-  <script>
-  require([
-    "esri/Map",
-    "esri/views/MapView",
-    "dojo/domReady!"
-  ], function(Map, MapView){
-    var map = new Map({
-      basemap: "osm"
-    });
-    var view = new MapView({
-      container: "viewDiv",  // Reference to the scene div created in step 5
-      map: map,  // Reference to the map object created before the scene
-      zoom: 4,  // Sets zoom level based on level of detail (LOD)
-      center: [15, 65]  // Sets center point of view using longitude,latitude
-    });
-  });
-  </script> -->
+  </head>
+  <body>
+    <ul class="nav">
+      <li><a href="../DirectoryPage/index.html">Directory</a></li>
+      <li><a href="../MapPage/mapindex.html">Map</a></li>
+      <li><a href="../ProfilePage/prof.html">My Profile</a></li>
+      <li><a href="../ProfileForm/profform.html">Edit Profile</a></li>
+      <li><a href="../About/aboutpage.html">About</a></li>
+    </ul>
 
-  <!-- Mapbox: -->
-  <script src='https://api.mapbox.com/mapbox-gl-js/v0.47.0/mapbox-gl.js'></script>
-  <link href='https://api.mapbox.com/mapbox-gl-js/v0.47.0/mapbox-gl.css' rel='stylesheet' />
+    <div id="map"></div>
+    <script src="../database.js"></script>
+    <script>
+      mapboxgl.accessToken =
+        "pk.eyJ1IjoiZWdncm9sbHoiLCJhIjoiY2poMTVyYWpoMHprNzJxbzF4ZHhpYmpxcSJ9.d1AJrs4oNDjPnCz7Wz89PA";
+      var map = new mapboxgl.Map({
+        container: "map",
+        style: "mapbox://styles/mapbox/basic-v9",
+        center: [-96, 37.8],
+        zoom: 2
+      });
 
-</head>
+      // Empty Feature Set
+      var myFeatureSet = {
+        id: "points",
+        type: "symbol",
+        source: {
+          type: "geojson",
+          data: {
+            type: "FeatureCollection",
+            features: [] // We will be populating this from our database
+          }
+        },
+        layout: {
+          "icon-image": "{icon}-15",
+          "text-field": "{title}",
+          "text-font": ["Open Sans Semibold", "Arial Unicode MS Bold"],
+          "text-offset": [0, 0.6],
+          "text-anchor": "top"
+        }
+      };
+
+      // Loop through 2018 class data
+      classData["c2018"].forEach(student => {
+        // create feature object
+        var studentGeoData = {
+          type: "Feature",
+          geometry: {
+            type: "Point",
+            coordinates: student.location // pull in student location
+          },
+          properties: {
+            title: student.name, // pull in student name
+            icon: "monument"
+          }
+        };
+
+        // add feature object to the features array of the feature set
+        myFeatureSet.source.data.features.push(studentGeoData);
+      });
+
+      // all the code above will have ran and then we can add the newly populated featureset to the map
+      map.on("load", function() {
+      map.addLayer(myFeatureSet);
+      });
+      map.addControl(new mapboxgl.NavigationControl());
+
+    </script>
+
+    <div id="description">This map displays where students and professors from the MS GIST Program are located now!<div/>
 
 
-
-<body>
-  <ul class="nav">
-    <li><a href="../DirectoryPage/index.html">Directory</a></li>
-    <li><a href="../MapPage/mapindex.html">Map</a></li>
-    <li><a href="../ProfilePage/prof.html">My Profile</a></li>
-    <li><a href="../ProfileForm/profform.html">Edit Profile</a></li>
-    <li><a href="../About/aboutpage.html">About</a></li>
-  </ul>
-
-  <div id='map' style='width: 1600px; height:1200px;'></div>
-  <script>
-    mapboxgl.accessToken = 'pk.eyJ1IjoiZWdncm9sbHoiLCJhIjoiY2poMTVyYWpoMHprNzJxbzF4ZHhpYmpxcSJ9.d1AJrs4oNDjPnCz7Wz89PA';
-    var map = new mapboxgl.Map({
-    container: 'map',
-    style: 'mapbox://styles/mapbox/streets-v10'
-    });
-  </script>
-<!--
-<div id="viewDiv"></div> -->
-</body>
-
+  </body>
 </html>
