@@ -108,7 +108,7 @@
         var thisYearsData = classData[year]
         //thisYearsData.find() is an array.find() function
         var myPerson = thisYearsData.find(function(item) {
-          if (item.properties.email == email) {
+          if (item.email == email) {
             return true
           }
           else {
@@ -118,16 +118,16 @@
         })
 
         if (myPerson) {
-          $("#personName").text(myPerson.properties.name)
-          $("#personTitle").text(myPerson.properties.jobtitle)
-          $("#personEmployer").text(myPerson.properties.employer)
-          $("#personLocation").text(myPerson.properties.joblocation)
-          $("#personYear").text("Year started: " + myPerson.properties.yearstarted)
-          $("#personDescription").text("Description: " + myPerson.properties.description)
-          $("#personInterests").text("Interests: " + myPerson.properties.interests)
-          $("#personEmail").text("Email: " + myPerson.properties.email)
-          $("#personPhone").text("Phone: " + myPerson.properties.phone)
-          $("#personSite").text("Website: " + myPerson.properties.website)
+          $("#personName").text(myPerson.name)
+          $("#personTitle").text(myPerson.jobtitle)
+          $("#personEmployer").text(myPerson.employer)
+          $("#personLocation").text(myPerson.joblocation)
+          $("#personYear").text("Year started: " + myPerson.yearstarted)
+          $("#personDescription").text("Description: " + myPerson.description)
+          $("#personInterests").text("Interests: " + myPerson.interests)
+          $("#personEmail").text("Email: " + myPerson.email)
+          $("#personPhone").text("Phone: " + myPerson.phone)
+          $("#personSite").text("Website: " + myPerson.website)
 
           // $("img").attr('src', 'https://source.unsplash.com/random/500x500')
         }
