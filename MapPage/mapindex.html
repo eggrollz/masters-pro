@@ -37,49 +37,189 @@
       });
 
       // Empty Feature Set
-      var myFeatureSet = {
+      var myFeatureSet = ( "data", {
         id: "points",
         type: "symbol",
-        source: {
+        source: ("data",{
           type: "geojson",
           data: {
             type: "FeatureCollection",
-            features: [] // We will be populating this from our database
-          }
-        },
+            features: [], // We will be populating this from our database
+          },
+        cluster:true,
+        clusterRadius: 20,
+        clusterMaxZoom: 1,
+        }),
         layout: {
-          "icon-image": "{icon}-15",
+          "icon-image": "{icon}-11",
+          "icon-size": 0.75,
           "text-field": "{title}",
-          "text-font": ["Open Sans Semibold", "Arial Unicode MS Bold"],
+          "text-font": ["Open Sans Semibold"],
+          "text-size": 12,
           "text-offset": [0, 0.6],
           "text-anchor": "top"
         }
-      };
+      });
 
       // Loop through 2018 class data
       classData["c2018"].forEach(student => {
         // create feature object
-        var studentGeoData = {
-          type: "Feature",
+        var studentGeoData = ("data",
+          {type: "Feature",
           geometry: {
             type: "Point",
             coordinates: student.location // pull in student location
           },
           properties: {
             title: student.name, // pull in student name
-            icon: "monument"
+            description: student.jobtitle + ', ' + student.employer,
+            icon: "circle"
           }
-        };
-
+        });
         // add feature object to the features array of the feature set
         myFeatureSet.source.data.features.push(studentGeoData);
       });
 
       // all the code above will have ran and then we can add the newly populated featureset to the map
       map.on("load", function() {
-      map.addLayer(myFeatureSet);
-      });
+        map.addLayer(myFeatureSet);
+        map.addSource("earthquakes", {
+            type: "geojson",
+            // Point to GeoJSON data. This example visualizes all M1.0+ earthquakes
+            // from 12/22/15 to 1/21/16 as logged by USGS' Earthquake hazards program.
+            data: "https://www.mapbox.com/mapbox-gl-js/assets/earthquakes.geojson",
+            cluster: true,
+            clusterMaxZoom: 14, // Max zoom to cluster points on
+            clusterRadius: 20 // Radius of each cluster when clustering points (defaults to 50)
+        });
+
+        map.addLayer({
+            id: "clusters",
+            type: "circle",
+            source: "data",
+            filter: ["has", "point_count"],
+            paint: {
+                // Use step expressions (https://www.mapbox.com/mapbox-gl-js/style-spec/#expressions-step)
+                // with three steps to implement three types of circles:
+                //   * Blue, 20px circles when point count is less than 100
+                //   * Yellow, 30px circles when point count is between 100 and 750
+                //   * Pink, 40px circles when point count is greater than or equal to 750
+                "circle-color": [
+                    "step",
+                    ["get", "point_count"],
+                    "#51bbd6",
+                    100,
+                    "#f1f075",
+                    750,
+                    "#f28cb1"
+                ],
+                "circle-radius": [
+                    "step",
+                    ["get", "point_count"],
+                    20,
+                    100,
+                    30,
+                    750,
+                    40
+                ]
+            }
+        });
+
+        map.addLayer({
+            id: "cluster-count",
+            type: "symbol",
+            source: "data",
+            filter: ["has", "point_count"],
+            layout: {
+                "text-field": "{point_count_abbreviated}",
+                "text-font": ["DIN Offc Pro Medium", "Arial Unicode MS Bold"],
+                "text-size": 12
+            }
+        });
+
+        map.addLayer({
+            id: "unclustered-point",
+            type: "circle",
+            source: "data",
+            filter: ["!", ["has", "point_count"]],
+            paint: {
+                "circle-color": "#11b4da",
+                "circle-radius": 4,
+                "circle-stroke-width": 1,
+                "circle-stroke-color": "#fff"
+            }
+        });
+
+        // inspect a cluster on click
+        map.on('click', 'clusters', function (e) {
+            var features = map.queryRenderedFeatures(e.point, { layers: ['clusters'] });
+            var clusterId = features[0].properties.cluster_id;
+            map.getSource('data').getClusterExpansionZoom(clusterId, function (err, zoom) {
+                if (err)
+                    return;
+
+                map.easeTo({
+                    center: features[0].geometry.coordinates,
+                    zoom: zoom
+                });
+            });
+        });
+
+        map.on('mouseenter', 'clusters', function () {
+            map.getCanvas().style.cursor = 'pointer';
+        });
+        map.on('mouseleave', 'clusters', function () {
+            map.getCanvas().style.cursor = '';
+        });
+        }
+      );
+
+
+
+
+
+
+
+
+
+
+
+
+
       map.addControl(new mapboxgl.NavigationControl());
+
+      map.on('click', 'points', function (e) {
+        var coordinates = e.features[0].geometry.coordinates.slice();
+        var description = e.features[0].properties.description;
+
+        // Ensure that if the map is zoomed out such that multiple
+        // copies of the feature are visible, the popup appears
+        // over the copy being pointed to.
+        while (Math.abs(e.lngLat.lng - coordinates[0]) > 180) {
+            coordinates[0] += e.lngLat.lng > coordinates[0] ? 360 : -360;
+        }
+
+        new mapboxgl.Popup()
+            .setLngLat(coordinates)
+            .setHTML(description)
+            .addTo(map);
+    });
+
+          // Change the cursor to a pointer when the mouse is over the places layer.
+          map.on('mouseenter', 'places', function () {
+              map.getCanvas().style.cursor = 'pointer';
+          });
+
+          // Change it back to a pointer when it leaves.
+          map.on('mouseleave', 'places', function () {
+              map.getCanvas().style.cursor = '';
+            });
+
+
+
+
+
+
 
     </script>
 
