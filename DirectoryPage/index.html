@@ -36,9 +36,7 @@
   <script src="../database.js"></script>
 
   <script>
-
     $(document).ready(function() {
-
       $("#classlist").change(function() {
         var selectedValue = $('#classlist').val();
         var year = classData["c" + selectedValue];
@@ -74,74 +72,9 @@
           personDiv.append(personUl)
           $("#page").append(personDiv)
         })
-
-        // click function using jquery (but I chose to use a href insted for var personDiv):
-        // $(".box").click(function() {
-        //   window.location.assign("../ProfilePage/prof.html")
-        // });
-
       }
-
     });
 
-
-
-    // function loadProfile() {
-    //   $(".box").click(function() {
-    //     window.location.assign("../ProfilePage/prof.html")
-    // })};
-
   </script>
-
-<!-- <div class="box">
-//     <ul class= "prof-list">
-//       <li><a href=""> NAME </a></li>
-//       <li> Name of position </li>
-//       <li> Organization </li>
-//       <li> Location of position </li>
-//       <li> Interests: keywords </li>
-//     </ul>
-//   </div>
-//     <div class="box">
-//       <ul class= "prof-list">
-//         <li><a href="#"> QUYEN HA </a></li>
-//         <li> GIS Technician </li>
-//         <li> Town of Marana </li>
-//         <li> Marana, AZ </li>
-//         <li> Interests: development, sustainability, database management </li>
-//       </ul>
-//     </div>
-//
-//     <div class="box">
-//       <ul class= "prof-list">
-//         <li><a href=""> LUARA ORTIZ </a></li>
-//         <li>Archeologist</li>
-//         <li> Organization </li>
-//         <li>Tucson, AZ</li>
-//         <li>Interests: development, archelogy </li>
-//       </ul>
-//     </div>
-//
-//     <div class="box">
-//       <ul class= "prof-list">
-//         <li><a href=""> MOHAMED MOHAMED </a></li>
-//         <li>GIS Technician</li>
-//         <li>TerraSystems</li>
-//         <li>Tucson, AZ</li>
-//         <li>Interests: networks, surveying, engineering</li>
-//       </ul>
-//     </div>
-//
-//     <div class="box">
-//       <ul class= "prof-list">
-//         <li><a href=""> CHRISTY ELZEY </a></li>
-//         <li>Systems Engineer</li>
-//         <li>Raytheon</li>
-//         <li>Tucson, AZ</li>
-//         <li>Interests: development, systems analysis, biology</li>
-//       </ul>
-//     </div> -->
-
   </body>
-
 </html>
